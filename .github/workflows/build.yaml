@@ -1,0 +1,26 @@
+# .github/workflows/build.yml
+name: Node Build
+
+on: [push]
+
+jobs:
+  mainbuild: 
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [12.x]
+        os: [windows-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
