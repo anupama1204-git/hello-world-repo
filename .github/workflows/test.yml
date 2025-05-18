@@ -6,6 +6,7 @@ env:
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
  
 jobs:
   build:
@@ -13,7 +14,8 @@ jobs:
         NAME: 'My Action 2'
  
     runs-on: ubuntu-latest
- 
+
+    steps:
     - name: Print name
       run: echo "$NAME"
       env:
