@@ -15,7 +15,7 @@ jobs:
  
     runs-on: ubuntu-latest
 
-    steps:
+
     - name: Print name
       run: echo "$NAME"
       env:
